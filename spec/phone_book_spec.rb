@@ -62,6 +62,25 @@ describe(Contact) do
       expect(Contact.all()).to(eq([a, b, c]))
     end
   end
+  describe('.find_id') do
+    it('Returns the contact instance matching an id#') do
+      a = Contact.new({:name => "Bigelow",:phones => 6200})
+      b = Contact.new({:name => "Brenda Lee",:phones => 1234567})
+      c = Contact.new({:name => "C. Berry",:phones => 7777777})
+      expect(Contact.find_id(1)).to(eq(a))
+      expect(Contact.find_id(2)).to(eq(b))
+      expect(Contact.find_id(3)).to(eq(c))
+    end
+  end
+  describe('#add_phone') do
+    it('Adds a Phone instance to the @phones array') do
+      phone_home = Phone.new({:number => "564-890-4567", :type => "Home"})
+      a = Contact.new({:name => "Bigelow",:phones => [phone_home]})
+      office_phone = Phone.new({:number => "456-789-1212", :type => "Office"})
+      a.add_phone(office_phone)
+      expect(a.phones()).to(eq([phone_home, office_phone]))
+    end
+  end
 end
 describe(Phone) do
   before() do
