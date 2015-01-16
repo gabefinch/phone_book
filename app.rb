@@ -12,11 +12,12 @@ post('/add') do
   input_name = params['name']
   input_number = params['number']
   new_phone = Phone.new({:number => input_number, :type => "Home"})
-  Contact.new({:name => input_name, :number => [new_phone]})
+  Contact.new({:name => input_name, :phones => [new_phone]})
   redirect('/')
 end
 
-get('/detail') do
+get('/detail/:id') do
+  @contact = Contact.find_id(params['id'].to_i())
   erb(:contact_detail)
 end
 

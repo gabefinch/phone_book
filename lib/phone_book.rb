@@ -14,6 +14,15 @@ class Contact
   define_singleton_method(:all) do
     @@all
   end
+  define_singleton_method(:find_id) do |id|
+    match = nil
+    @@all.each do |contact|
+      if contact.id().==(id)
+        match = contact
+      end
+    end
+    match
+  end
 end
 class Phone
   attr_reader(:number,:type,:created_on)

@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><h1><%= @contact.name() %></h1></div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <% @contact.phones().each() do |phone| %>
+      <li class="list-group-item"><%= phone.type() %></li>
+      <li class="list-group-item"><%= phone.number() %></li>
+      <br>
+      <% end %>
+    </ul>
+  </div>
+</div>
