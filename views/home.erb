@@ -28,7 +28,8 @@
     <div class="list-group">
       <% @list.each() do |contact| %>
         <a href="/detail/<%= contact.id() %>" class="list-group-item">
-        <%= contact.name() %>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <%= contact.name() %>
         </a>
       <% end %>
     </div>

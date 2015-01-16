@@ -29,5 +29,5 @@ post('/add_detail/:id') do
   input_type = params['type']
   new_phone = Phone.new({:number => input_number, :type => input_type})
   @contact.add_phone(new_phone)
-  redirect('detail/<%= @contact.id() %>')
+  redirect back
 end

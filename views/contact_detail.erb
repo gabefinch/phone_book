@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <div class="panel-heading"><h1><%= @contact.name() %></h1></div>
+  <div class="panel-heading"><h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @contact.name() %></h1></div>
   <div class="panel-body">
     <ul class="list-group">
       <% @contact.phones().each() do |phone| %>
@@ -17,11 +17,15 @@
       <br>
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></span>
-        <input type="text" class="form-control" name="number" placeholder="Line type e.g. Cellular" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" name="type" placeholder="Line type e.g. Cellular" aria-describedby="basic-addon1">
       </div>
       <br>
       <button type="submit" class="btn btn-sm btn-primary">Add</button>
       <button type="reset" class="btn btn-sm btn-danger">Reset</button>
-  </form>
+    </form>
   </div>
+  <form id="form_id" action="/" method="get">
+    <button type="submit"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</button>
+
+  </form>
 </div>
