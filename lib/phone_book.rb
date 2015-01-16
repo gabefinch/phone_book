@@ -23,6 +23,9 @@ class Contact
     end
     match
   end
+  define_method(:add_phone) do |phone|
+    @phones = @phones.push(phone)
+  end
 end
 class Phone
   attr_reader(:number,:type,:created_on)
@@ -39,4 +42,5 @@ class Phone
   define_singleton_method(:all) do
     @@all
   end
+
 end

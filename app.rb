@@ -11,7 +11,8 @@ end
 post('/add') do
   input_name = params['name']
   input_number = params['number']
-  new_phone = Phone.new({:number => input_number, :type => "Home"})
+  input_type = params['type']
+  new_phone = Phone.new({:number => input_number, :type => input_type})
   Contact.new({:name => input_name, :phones => [new_phone]})
   redirect('/')
 end
@@ -21,6 +22,12 @@ get('/detail/:id') do
   erb(:contact_detail)
 end
 
-post('/detail') do
-  erb(:contact_detail)
+post('/add_detail/:id') do
+  id = params['id']
+  @contact = Contact.find_id(params['id'].to_i())
+  input_number = params['number']
+  input_type = params['type']
+  new_phone = Phone.new({:number => input_number, :type => input_type})
+  @contact.add_phone(new_phone)
+  redirect('detail/<%= @contact.id() %>')
 end
