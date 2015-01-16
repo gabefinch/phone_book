@@ -45,4 +45,21 @@ describe(Contact) do
       expect(c.created_on().class()).to(eq(Time))
     end
   end
+  describe('.clear') do
+    it('returns the name from a contact instance') do
+      a = Contact.new({:name => "Bigelow",:phone => 6200})
+      b = Contact.new({:name => "Brenda Lee",:phone => 1234567})
+      c = Contact.new({:name => "C. Berry",:phone => 7777777})
+      Contact.clear()
+      expect(Contact.all()).to(eq([]))
+    end
+  end
+  describe('.all') do
+    it('returns the name from a contact instance') do
+      a = Contact.new({:name => "Bigelow",:phone => 6200})
+      b = Contact.new({:name => "Brenda Lee",:phone => 1234567})
+      c = Contact.new({:name => "C. Berry",:phone => 7777777})
+      expect(Contact.all()).to(eq([a, b, c]))
+    end
+  end
 end

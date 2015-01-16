@@ -15,4 +15,9 @@ class Contact
     @@all = []
   end
 
+  define_singleton_method(:all) do
+    @@all
+  end
+
+
 end
